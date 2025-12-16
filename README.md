@@ -1,6 +1,5 @@
 # YOLO Label Detector
 
-Простой пайплайн для обучения и инференса YOLOv8 с Hydra-конфигами, логированием в MLflow и управлением данными через DVC.
 
 ## Структура
 
@@ -24,8 +23,6 @@ poetry run pre-commit install
 ```bash
 poetry run dvc pull
 ```
-
-Если нужно настроить удалёнку: `poetry run dvc remote add -f gdrive_remote gdrive://<folder-id>` и `poetry run dvc push`.
 
 ## MLflow UI (локально)
 
