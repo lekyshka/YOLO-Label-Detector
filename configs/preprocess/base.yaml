@@ -1,0 +1,7 @@
+normalize: true
+augmentations:
+  horizontal_flip: true
+  vertical_flip: false
+  mosaic: false
+  hsv: true
+note: "Basic preprocessing flags; YOLO dataloader handles specifics."

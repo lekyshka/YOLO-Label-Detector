@@ -1,0 +1,7 @@
+model_path: runs/train/exp1/weights/best.pt
+source: dataset/images/val
+save_dir: outputs/infer
+conf: 0.25
+iou: 0.45
+max_det: 100
+imgsz: ${train.img_size}

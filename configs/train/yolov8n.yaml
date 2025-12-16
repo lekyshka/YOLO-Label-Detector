@@ -1,0 +1,9 @@
+model: yolov8n.pt
+epochs: 50
+img_size: 640
+batch: 16
+device: cpu
+workers: 2
+patience: 20
+project: runs/train
+run_name: exp1

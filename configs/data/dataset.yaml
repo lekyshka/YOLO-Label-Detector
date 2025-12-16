@@ -1,0 +1,5 @@
+root: dataset
+data_yaml: ${data.root}/data.yaml
+train_subdir: images/train
+val_subdir: images/val
+labels_subdir: labels

@@ -1,0 +1,6 @@
+mlflow:
+  enabled: true
+  tracking_uri: http://127.0.0.1:8080
+  experiment_name: yolo_label_detector
+  run_name: null
+  log_best_checkpoint: true

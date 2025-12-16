@@ -1,1 +1,8 @@
 /dataset
+dvc_storage/
+runs/
+outputs/
+mlflow.db
+*.pt
+__pycache__/
+*.log

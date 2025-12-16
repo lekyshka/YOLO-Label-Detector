@@ -1,0 +1,6 @@
+[core]
+    remote = gdrive_remote
+['remote "local_storage"']
+    url = C:/Users/User/dvc_storage
+['remote "gdrive_remote"']
+    url = gdrive://18YPD0Mkx8366klwDChYfSN0lEoUMIrvv

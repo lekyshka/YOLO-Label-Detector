@@ -1,0 +1,7 @@
+metrics_to_plot:
+  - train/box_loss
+  - train/cls_loss
+  - metrics/precision(B)
+  - metrics/recall(B)
+  - metrics/mAP50(B)
+plot_format: png
