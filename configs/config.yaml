@@ -5,6 +5,7 @@ defaults:
   - infer: default
   - postprocess: default
   - logging: mlflow
+  - export: default
   - _self_
 
 seed: 42

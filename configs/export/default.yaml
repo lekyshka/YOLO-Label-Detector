@@ -1,0 +1,16 @@
+model_path: runs/train/exp1/weights/best.pt
+
+onnx:
+  enabled: true
+  output_path: outputs/export/onnx/model.onnx
+  opset: 17
+  dynamic: false
+  half: false
+  simplify: true
+
+tensorrt:
+  enabled: false
+  output_path: outputs/export/tensorrt/model.engine
+  precision: fp16            # варианты: fp32, fp16, int8
+  workspace: 4               # GB
+  use_onnx_input: ${onnx.output_path}
