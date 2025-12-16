@@ -1,6 +1,4 @@
 [core]
-    remote = gdrive_remote
-['remote "local_storage"']
-    url = C:/Users/User/dvc_storage
-['remote "gdrive_remote"']
-    url = gdrive://18YPD0Mkx8366klwDChYfSN0lEoUMIrvv
+    remote = myremote
+['remote "myremote"']
+    url = ssh://aidev@109.174.2.191:49022/home/aidev/dvc_storage
