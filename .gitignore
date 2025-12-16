@@ -6,3 +6,4 @@ mlflow.db
 __pycache__/
 *.log
 /dataset
+node_modules/

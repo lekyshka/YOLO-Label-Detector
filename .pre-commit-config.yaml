@@ -32,3 +32,4 @@ repos:
     hooks:
       - id: prettier
         additional_dependencies: ["prettier@4.0.0-alpha.8"]
+exclude: "^node_modules/|^node_modules\\\\"

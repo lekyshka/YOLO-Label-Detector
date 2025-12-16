@@ -86,11 +86,15 @@ def _plot_curves(
     if df.empty:
         return saved
 
+    df_plot = df.copy()
+    if "epoch" in df_plot.columns:
+        df_plot = df_plot.set_index("epoch")
+
     # Loss curves
-    loss_cols = [col for col in ["train/box_loss", "val/box_loss"] if col in df.columns]
+    loss_cols = [col for col in ["train/box_loss", "val/box_loss"] if col in df_plot.columns]
     if loss_cols:
-        ax = df[loss_cols].plot(title=f"{run_name} - Box loss")
-        ax.set_xlabel("epoch")
+        ax = df_plot[loss_cols].plot(title=f"{run_name} - Box loss", marker="o")
+        ax.set_xlabel("epoch" if "epoch" in df.columns else "index")
         ax.set_ylabel("loss")
         loss_path = plots_dir / f"{run_name}_loss.{plot_format}"
         plt.tight_layout()
@@ -99,10 +103,12 @@ def _plot_curves(
         saved["loss"] = loss_path
 
     # Precision / recall
-    pr_cols = [col for col in ["metrics/precision(B)", "metrics/recall(B)"] if col in df.columns]
+    pr_cols = [
+        col for col in ["metrics/precision(B)", "metrics/recall(B)"] if col in df_plot.columns
+    ]
     if pr_cols:
-        ax = df[pr_cols].plot(title=f"{run_name} - Precision/Recall")
-        ax.set_xlabel("epoch")
+        ax = df_plot[pr_cols].plot(title=f"{run_name} - Precision/Recall", marker="o")
+        ax.set_xlabel("epoch" if "epoch" in df.columns else "index")
         ax.set_ylabel("score")
         pr_path = plots_dir / f"{run_name}_precision_recall.{plot_format}"
         plt.tight_layout()
@@ -111,10 +117,12 @@ def _plot_curves(
         saved["precision_recall"] = pr_path
 
     # mAP
-    map_cols = [col for col in ["metrics/mAP50(B)", "metrics/mAP50-95(B)"] if col in df.columns]
+    map_cols = [
+        col for col in ["metrics/mAP50(B)", "metrics/mAP50-95(B)"] if col in df_plot.columns
+    ]
     if map_cols:
-        ax = df[map_cols].plot(title=f"{run_name} - mAP")
-        ax.set_xlabel("epoch")
+        ax = df_plot[map_cols].plot(title=f"{run_name} - mAP", marker="o")
+        ax.set_xlabel("epoch" if "epoch" in df.columns else "index")
         ax.set_ylabel("score")
         map_path = plots_dir / f"{run_name}_map.{plot_format}"
         plt.tight_layout()
