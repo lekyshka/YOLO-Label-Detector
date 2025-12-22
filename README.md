@@ -83,7 +83,7 @@ poetry run python src/yolo_label_detector/infer.py ^
   infer.source=path/to/images
 ```
 
-## Экспорт ONNX / TensorRT
+## Экспорт ONNX
 
 ```bash
 # ONNX (CPU ок)
