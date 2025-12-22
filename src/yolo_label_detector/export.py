@@ -96,17 +96,11 @@ def main(cfg: DictConfig) -> None:
     model = YOLO(str(model_path))
 
     onnx_path = _export_onnx(model, cfg)
-    engine_path = _export_tensorrt(model, cfg, onnx_path)
 
     _log_onnx_mlflow(cfg, onnx_path)
 
     if onnx_path.exists():
         print(f"ONNX готов: {onnx_path}")
-    if cfg.export.tensorrt.enabled:
-        if engine_path.exists():
-            print(f"TensorRT engine готов: {engine_path}")
-        else:
-            print("TensorRT engine не сгенерирован (проверьте окружение с GPU и TensorRT).")
 
 
 if __name__ == "__main__":
